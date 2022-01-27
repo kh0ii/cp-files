@@ -7,15 +7,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
-" Nerdtree
-Plugin 'preservim/nerdtree'
-
 " Theme
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 
 " Auto Complete
 Plugin 'vim-scripts/AutoComplPop'
+
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -35,14 +34,6 @@ nnoremap ,cpp :-1read ~/.vim/templates/nodef.cpp<CR>6jf>A
 "set background=dark
 colorscheme onedark
 set termguicolors
-
-"==================== NERD Tree =========================="
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-nmap <F6> :NERDTreeToggle<CR>
 
 "=================== Build Commands ======================"
 
@@ -111,6 +102,17 @@ inoremap <expr> <Down> pumvisible() ? "<C-n>":"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>":"<Up>"
 inoremap <expr> <Tab> pumvisible() ? "<C-y>":"<Tab>"
 
+"======================= Lightline ======================"
+
+"autocmd VimEnter * call lightline#update()
+
+if !has('gui_running')
+  set t_Co=256
+endif
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
 "=========================== Set ========================="
 
 au FileType cpp set complete+=kspell
@@ -119,6 +121,7 @@ au FileType cpp set completeopt=menuone,longest
 au FileType cpp set shortmess+=c
 
 " general settings
+set laststatus=2
 set nocompatible
 set nobackup
 set nowb
@@ -134,6 +137,7 @@ set fenc=utf-8
 set termencoding=utf-8
 set encoding=UTF-8
 
+set noshowmode
 set incsearch
 set autoindent
 set smartindent
