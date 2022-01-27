@@ -1,0 +1,13 @@
+import java.util.Scanner  
+
+fun sum(a: Int, b: Int) = a + b
+
+fun main(){
+    val read = Scanner(System.`in`)  
+    var t = read.nextInt()  
+    for(i in 1..t){
+        var a = read.nextInt()
+        var b = read.nextInt()
+        println(a+b)
+    }
+}

@@ -1,0 +1,37 @@
+import java.util.Scanner  
+
+fun main(){
+    var read = Scanner(System.`in`)  
+    var a1 = read.nextInt()
+    var a2 = read.nextInt()
+    var k1 = read.nextInt()
+    var k2 = read.nextInt()
+    var n = read.nextInt()
+    
+    if(k2 > k1){
+        k2 = k1.also { k1 = k2 }
+        a2 = a1.also { a1 = a2 }
+    }
+    
+    var cnt=0
+    
+    var n1 = n
+    var na1 = a1
+    var na2 = a2
+    
+    while(n - k2 >= 0 && a2 >=1){
+        cnt = cnt + 1
+        n = n - k2
+        a2 = a2 - 1
+    }
+    while(n - k1 >=0 && a1 >=1){
+        cnt = cnt + 1
+        n = n - k1
+        a1 = a1 - 1
+    }
+    
+    var lim = 0
+    lim = lim + (na1*(k1-1)) + (na2*(k2-1))
+    lim = maxOf(0, n1-lim)
+    print("${lim} ${cnt}") 
+}

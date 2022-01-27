@@ -1,0 +1,11 @@
+from itertools import accumulate 
+n, k = map(int, input().split(' '))
+a = map(int, input().split(' '))
+
+prefix = list(accumulate(a))
+total = prefix[k-1]
+
+for i in range(k, n):
+    total = total + prefix[i] - prefix[i-k]
+
+print("{:.10f}".format(float(total) / float(n-k+1)))
