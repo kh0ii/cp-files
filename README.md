@@ -1,6 +1,6 @@
 My files for Competitive Programming.
 
-This also contains my accepted submissions on [Codeforces](https://codeforces.com).
+This also contains my accepted solutions on [Codeforces](https://codeforces.com). Feel free to use them if you are stuck on a problem.
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/lekhoi2407/cp-files)
 ![Lines of code](https://img.shields.io/tokei/lines/github/lekhoi2407/cp-files)
