@@ -26,7 +26,7 @@ void solve(){
         cin >> a[i];
         update(i, a[i]);
     }
-    // Sum of elements from L to R is query(R) - query(L)
+    // Sum of elements from L to R is query(R) - query(L - 1)
 }
 
 int32_t main() {
