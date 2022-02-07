@@ -44,7 +44,7 @@ vmap <F10> <Esc>:call Compile()<CR>
 map <F9> :call Run()<CR>
 imap <F9> <Esc>:call Run()<CR>
 vmap <F9> <ESC>:call Run()<CR>
-
+" Copy cua RR :D
 func! Compile()
 exec "w"
 if &filetype == 'c'
@@ -97,7 +97,7 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 
-" Auto complete keybinds
+" Auto complete keybinds cua fryingduc
 inoremap <expr> <Down> pumvisible() ? "<C-n>":"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>":"<Up>"
 inoremap <expr> <Tab> pumvisible() ? "<C-y>":"<Tab>"
@@ -122,31 +122,21 @@ au FileType cpp set shortmess+=c
 
 " general settings
 set laststatus=2
-set nocompatible
-set nobackup
-set nowb
-set noswapfile
+set nocompatible nobackup nowb noswapfile
 
 set nu
 set clipboard=unnamedplus
-:set backspace=indent,eol,start
+set backspace=indent,eol,start
 set comments=sl:/*,mb:\ *,elx:\ */
 
-set enc=utf-8 
-set fenc=utf-8
-set termencoding=utf-8
-set encoding=UTF-8
+set enc=utf-8 fenc=utf-8
+set termencoding=utf-8 encoding=UTF-8
 
 set noshowmode
 set incsearch
-set autoindent
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set autoindent smartindent tabstop=4 shiftwidth=4 expandtab
 
-set showcmd
-set shellslash
+set showcmd shellslash
 syntax on  
 
 set wildignore+=.git,.hg,.svn
@@ -161,5 +151,5 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
 "========================================================"
-" Made by kh0i
+" lmao
 
