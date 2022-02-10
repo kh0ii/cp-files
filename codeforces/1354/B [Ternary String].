@@ -1,0 +1,23 @@
+t = int(input())
+
+def solve():
+    s = str(input())
+    l = 0; r = 0; ans = 0
+    k = {}
+    k['1'] = 0
+    k['2'] = 0
+    k['3'] = 0
+    while(r < len(s)):
+        k[s[r]] += 1
+        while k[s[l]] > 1:
+            k[s[l]] -= 1
+            l += 1
+        if k['1'] > 0 and  k['2'] > 0 and k ['3'] > 0:
+            ans = min(ans, r - l + 1)
+            if ans == 0:
+                ans = r - l + 1
+        r = r + 1
+    print(ans)
+
+for _ in range(t):
+    solve()

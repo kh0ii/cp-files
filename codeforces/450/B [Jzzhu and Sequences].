@@ -1,0 +1,14 @@
+x, y = map(int, input().split())
+n = int(input())
+
+f = [x, y]
+for i in range(0, 4):
+    f.append(f[-1] - f[-2])
+
+#for i in f:
+#    print(i, end = ' ')
+
+if n % 6 != 0:
+    print(f[n % 6 - 1] % int(1e9 + 7))
+else:
+    print(f[5] % int(1e9 + 7))
