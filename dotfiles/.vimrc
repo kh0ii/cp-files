@@ -22,7 +22,7 @@ filetype plugin indent on
 "====================== Snippets ========================="
 
 nnoremap ,pr :1 <bar> -1read ~/.vim/templates/cpprag.cpp<CR>>A
-nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>60jf>A
+"nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>60jf>A
 nnoremap ,cpp :-1read ~/.vim/templates/nodef.cpp<CR>4jf>A
 :autocmd BufNewFile *.cpp :-1read !python3 ~/scripts/initdate.py
 :autocmd BufNewFile *.cpp
@@ -77,6 +77,8 @@ endfunc
 
 "====================== Keybinds ======================="
 
+set ru cul
+
 " Tabs
 map tn :tabnew<cr>
 map t :tabnext<cr>
@@ -114,6 +116,7 @@ let g:lightline = {
       \ }
 
 "=========================== Set ========================="
+
 
 au FileType cpp set complete+=kspell
 au FileType cpp set dictionary+=~/file/vim-auto-complete/words.txt
