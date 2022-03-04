@@ -27,7 +27,7 @@ nnoremap ,cpp :-1read ~/.vim/templates/nodef.cpp<CR>4jf>A
 :autocmd BufNewFile *.cpp :-1read !python3 ~/scripts/initdate.py
 :autocmd BufNewFile *.cpp
             \ :read ~/.vim/templates/default.cpp |
-            \ :65 |
+            \ :61 |
 
 "==================== Color schemes ======================"
 
@@ -77,8 +77,6 @@ endfunc
 
 "====================== Keybinds ======================="
 
-set ru cul
-
 " Tabs
 map tn :tabnew<cr>
 map t :tabnext<cr>
@@ -99,7 +97,7 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 
-" Auto complete keybinds cua fryingduc
+" Auto complete keybinds from fryingduc
 inoremap <expr> <Down> pumvisible() ? "<C-n>":"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>":"<Up>"
 inoremap <expr> <Tab> pumvisible() ? "<C-y>":"<Tab>"
@@ -127,16 +125,16 @@ au FileType cpp set shortmess+=c
 set laststatus=2
 set nocompatible nobackup nowb noswapfile
 
-set nu
+set ru cul
+set nu rnu
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set comments=sl:/*,mb:\ *,elx:\ */
 
-set enc=utf-8 fenc=utf-8
-set termencoding=utf-8 encoding=UTF-8
+set enc=utf-8 fenc=utf-8 termencoding=utf-8 encoding=UTF-8
 
 set noshowmode
-set incsearch
+set incsearch hlsearch
 set autoindent smartindent tabstop=4 shiftwidth=4 expandtab
 
 set showcmd shellslash
@@ -155,4 +153,6 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 
 "========================================================"
 " lmao
+
+highlight Comment cterm=italic gui=italic
 
