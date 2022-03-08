@@ -23,11 +23,11 @@ filetype plugin indent on
 
 nnoremap ,pr :1 <bar> -1read ~/.vim/templates/cpprag.cpp<CR>>A
 "nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>60jf>A
-nnoremap ,cpp :-1read ~/.vim/templates/nodef.cpp<CR>4jf>A
+nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>60jf>A
 :autocmd BufNewFile *.cpp :-1read !python3 ~/scripts/initdate.py
 :autocmd BufNewFile *.cpp
-            \ :read ~/.vim/templates/default.cpp |
-            \ :61 |
+            \ :read ~/.vim/templates/nodef.cpp |
+            \ :15 |
 
 "==================== Color schemes ======================"
 
@@ -44,6 +44,7 @@ vmap <F10> <Esc>:call Compile()<CR>
 map <F9> :call Run()<CR>
 imap <F9> <Esc>:call Run()<CR>
 vmap <F9> <ESC>:call Run()<CR>
+
 " Copy cua RR :D
 func! Compile()
 exec "w"
