@@ -1,23 +1,26 @@
 #include "bits/stdc++.h"
 using namespace std;
-#define ll long long
-const int mod = 1000000007; //998244353;
+
+#ifdef LOCAL
+#include "debug.h"
+#else
+#define debug(...)
+#endif
 
 void solve(){
 
 }
 
 int32_t main() {
-    cin.tie(0)->sync_with_stdio(0);
-    cin.exceptions(cin.failbit);
+    cin.tie(nullptr)->sync_with_stdio(0);
     int test = 1;
 //    cin >> test;
-    for(int i=1; i<=test; ++i){
-//        cout << "Case #" << i << ": ";
+    for(int i = 1; i <= test; ++i){
         solve();
     }
+    cerr << "\nTime elapsed: " << 1000.0 * clock() / CLOCKS_PER_SEC << " ms.\n";
     return 0;
 }
-// Give yourself ~30 minutes of being stuck before reading editorial
+
 // Write stuff down
 

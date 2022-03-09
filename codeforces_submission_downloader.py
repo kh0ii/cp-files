@@ -67,7 +67,6 @@ for submission in submissions:
     ext = get_ext(comp_lang)
     name = new_directory + '/' + prob_id + ' [' + prob_name + ']' + '.' + ext
     if os.path.isfile(name):
-        print(f"{con_id}{prob_id} already exists")
         continue
     submission_full_url = SUBMISSION_URL.format(ContestId=con_id, SubmissionId=sub_id)
     print(f'Fetching {con_id}{prob_id}: ' + submission_full_url)
@@ -87,8 +86,6 @@ for submission in submissions:
     file.write(result)
     file.close()
     time.sleep(5)
-end_time = time.time()
 
-#duration_secs = int(end_time - start_time)
 print('Finished!')
 
