@@ -23,11 +23,11 @@ filetype plugin indent on
 
 nnoremap ,pr :1 <bar> -1read ~/.vim/templates/cpprag.cpp<CR>>A
 "nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>60jf>A
-nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>60jf>A
+nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>20jf>A
 :autocmd BufNewFile *.cpp :-1read !python3 ~/scripts/initdate.py
 :autocmd BufNewFile *.cpp
             \ :read ~/.vim/templates/nodef.cpp |
-            \ :15 |
+            \ :17 |
 
 "==================== Color schemes ======================"
 
