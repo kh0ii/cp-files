@@ -1,6 +1,8 @@
 #include "bits/stdc++.h"
+#pragma GCC optimize("O3")
+#pragma GCC optimize("unroll-loops")
 using namespace std;
-#define ll long long
+#define int long long
 const int mod = 1000000007; //998244353;
 int r, b, d;
 void solve(){
