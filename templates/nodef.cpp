@@ -7,6 +7,8 @@ using namespace std;
 #define debug(...)
 #endif
 
+using ll = long long;
+
 void solve(){
 
 }
@@ -21,6 +23,4 @@ int32_t main() {
     cerr << "\nTime elapsed: " << 1000.0 * clock() / CLOCKS_PER_SEC << " ms.\n";
     return 0;
 }
-
-// Write stuff down
 

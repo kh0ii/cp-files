@@ -85,7 +85,7 @@ for submission in submissions:
     file = open(name, 'w')
     file.write(result)
     file.close()
-    time.sleep(5)
+    time.sleep(3)
 
 print('Finished!')
 

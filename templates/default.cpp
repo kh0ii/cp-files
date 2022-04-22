@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define int long long  // MLE sometimes
+using ll = long long;  // MLE sometimes
 inline int gcd(int a, int b) { int r; while (b) {r = a % b; a = b; b = r;} return a; }
 inline int lcm(int a, int b) { return a / gcd(a, b) * b; }
 
@@ -33,3 +33,4 @@ int32_t main() {
     }
     return 0;
 }
+

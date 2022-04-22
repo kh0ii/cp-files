@@ -154,7 +154,6 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 
 "========================================================"
 " lmao
-
 highlight Comment cterm=italic gui=italic
 
 set mouse=a
