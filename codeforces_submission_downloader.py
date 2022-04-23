@@ -56,41 +56,38 @@ submissions = [submission for submission in dic['result'] if submission['verdict
 print('Fetching %d submissions' % len(submissions))
 
 for submission in submissions:
-    try:
-        if 'contestId' not in submission or submission['verdict'] != 'OK':
-            continue
-        if submission['contestId'] > MAX_CONTEST_ID:
-            continue
-        con_id, sub_id = submission['contestId'], submission['id'],
-        prob_name, prob_id = submission['problem']['name'], submission['problem']['index']
-        comp_lang = submission['programmingLanguage']
-        new_directory = base_dir + '/' + str(con_id)
-        ext = get_ext(comp_lang)
-        name = new_directory + '/' + prob_id + '.' + ext
-    
-        if os.path.isfile(name):
-            continue
-        submission_full_url = SUBMISSION_URL.format(ContestId=con_id, SubmissionId=sub_id)
-        print(f'Fetching {con_id}{prob_id}: ' + submission_full_url)
-        submission_info = urllib.request.urlopen(submission_full_url).read()
-        soup = BeautifulSoup(submission_info, 'html.parser')
-    #    print(soup)
-        submission_text = soup.find(id = "program-source-text")
-    #    eprint(submission_info)
-    #    print(submission_text)
-        if submission_text is None:
-            print(f"Could not fetch solution {submission['contestId']}{submission['problem']['index']}")
-            continue
-    
-        result = submission_text.text.replace('\r', '')
-        if not os.path.exists(new_directory):
-            os.makedirs(new_directory)
-    
-        file = open(name, 'w')
-        file.write(result)
-        file.close()
-        time.sleep(5)
-    except:
-        print("An error occured")
+    if 'contestId' not in submission or submission['verdict'] != 'OK':
+        continue
+    if submission['contestId'] > MAX_CONTEST_ID:
+        continue
+    con_id, sub_id = submission['contestId'], submission['id'],
+    prob_name, prob_id = submission['problem']['name'], submission['problem']['index']
+    comp_lang = submission['programmingLanguage']
+    new_directory = base_dir + '/' + str(con_id)
+    ext = get_ext(comp_lang)
+    name = new_directory + '/' + prob_id + '.' + ext
+ 
+    if os.path.isfile(name):
+        continue
+    submission_full_url = SUBMISSION_URL.format(ContestId=con_id, SubmissionId=sub_id)
+    print(f'Fetching {con_id}{prob_id}: ' + submission_full_url)
+    submission_info = urllib.request.urlopen(submission_full_url).read()
+    soup = BeautifulSoup(submission_info, 'html.parser')
+#    print(soup)
+    submission_text = soup.find(id = "program-source-text")
+#    eprint(submission_info)
+#    print(submission_text)
+    if submission_text is None:
+         print(f"Could not fetch solution {submission['contestId']}{submission['problem']['index']}")
+         continue
+   
+    result = submission_text.text.replace('\r', '')
+    if not os.path.exists(new_directory):
+        os.makedirs(new_directory)
+  
+    file = open(name, 'w')
+    file.write(result)
+    file.close()
+    time.sleep(5)
 print('Finished!')
 
