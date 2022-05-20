@@ -10,6 +10,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " Theme
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
+Plugin 'sonph/onehalf', { 'rtp': 'vim' }
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'ayu-theme/ayu-vim'
 
 " Auto Complete
 Plugin 'vim-scripts/AutoComplPop'
@@ -32,8 +35,31 @@ nnoremap ,cpp :-1read ~/.vim/templates/default.cpp<CR>20jf>A
 "==================== Color schemes ======================"
 
 "set background=dark
-colorscheme onedark
+"== One Dark =="
+"colorscheme onedark
+
+"== One Half =="
+"colorscheme onehalflight
+
+"== Nord =="
+colorscheme nord
+
+"== Ayu =="
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
 set termguicolors
+
+"=== Lightline ==="
+"autocmd VimEnter * call lightline#update()
+
+if !has('gui_running')
+  set t_Co=256
+endif
+let g:lightline = {
+      \ 'colorscheme': 'onehalfdark',
+      \ }
 
 "=================== Build Commands ======================"
 
@@ -103,18 +129,7 @@ inoremap <expr> <Down> pumvisible() ? "<C-n>":"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>":"<Up>"
 inoremap <expr> <Tab> pumvisible() ? "<C-y>":"<Tab>"
 
-"======================= Lightline ======================"
-
-"autocmd VimEnter * call lightline#update()
-
-if !has('gui_running')
-  set t_Co=256
-endif
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
-"=========================== Set ========================="
+"========================= Settings ======================="
 
 
 au FileType cpp set complete+=kspell

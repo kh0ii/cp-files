@@ -78,6 +78,7 @@ for submission in submissions:
 #    eprint(submission_info)
 #    print(submission_text)
     if submission_text is None:
+         print(soup.text)
          print(f"Could not fetch solution {submission['contestId']}{submission['problem']['index']}")
          continue
    
