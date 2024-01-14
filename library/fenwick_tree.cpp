@@ -1,38 +1,32 @@
-#include "bits/stdc++.h"
-using namespace std;
-#define ll long long
-const int mod = 1000000007; //998244353;
+struct Fenwick{
+    #define gb(x) (x) & -(x)
+    vector<ll> bit;
+    int n;
 
-const int MAXN = 200004;
-
-int bit[MAXN], a[MAXN], n;
-
-void update(int idx, int val){
-    for(; idx <= n; idx += idx & -idx){
-        bit[idx] += val;
+    void init(int _n){
+        bit.resize(_n + 4, 0);
+        n = _n;
     }
-}
 
-int query(int idx){
-    int res = 0;
-    for(; idx > 0; idx -= idx & -idx)
-        res += bit[idx];
-    return res;
-}
-
-void solve(){
-    // Build Fenwick Tree
-    for(int i = 1; i <= n; ++i){
-        cin >> a[i];
-        update(i, a[i]);
+    void upd(int x, ll val){
+        while(x <= n){
+            bit[x] += val;
+            x += gb(x);
+        }
     }
-    // Sum of elements from L to R is query(R) - query(L - 1)
-}
 
-int32_t main() {
-    cin.tie(0)->sync_with_stdio(0);
-    cin.exceptions(cin.failbit);
-    solve();
-    return 0;
-}
+    ll get(int x){
+        ll res = 0;
+        while(x > 0){
+            res += bit[x];
+            x -= gb(x);
+        }
+        return res;
+    }
 
+    ll get_range(int l, int r){
+        if(l > r)
+            return 0;
+        return get(r) - get(l - 1);
+    }
+};
