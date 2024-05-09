@@ -1,3 +1,23 @@
+struct Complex{
+    double r, i;
+    Complex() : r(0), i(0) {}
+    Complex(double t) : r(cos(t)), i(sin(t)) {}
+    Complex(double r, double i) : r(r), i(i) {}
+    const Complex operator + (const Complex &o) const {
+        return Complex(r + o.r, i + o.i);
+    }
+    const Complex operator - (const Complex &o) const {
+        return Complex(r - o.r, i - o.i);
+    }
+    const Complex operator * (const Complex &o) const {
+        return Complex(r * o.r - i * o.i, r * o.i + i * o.r);
+    }
+    void operator /= (double d){
+        this->r /= d;
+        this->i /= d;
+    }
+};
+
 const int LG = 20;
 const int N = 1 << LG;
 const double PI = acos(-1);

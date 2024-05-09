@@ -32,7 +32,7 @@ struct Dinic{
     ll get_max_flow(int _s, int _t){
         s = _s, t = _t;
         ll flow = 0;
-        for(lim = SCALING ? (1 << 30) : 1; lim > 0; lim >>= 1){
+        for(lim = SCALING ? (1ll << 59) : 1; lim > 0; lim >>= 1){
             while(1){
                 if(!bfs()) break;
                 fill(all(ptr), 0);
@@ -53,11 +53,9 @@ private:
             int u = q.front();
             q.pop();
             for(int id : g[u]){
-                if(e[id].cap - e[id].flow < 1)
+                if(e[id].cap - e[id].flow < lim)
                     continue;
                 if(level[e[id].v] != -1)
-                    continue;
-                if(SCALING and e[id].cap - e[id].flow < lim)
                     continue;
                 level[e[id].v] = level[u] + 1;
                 q.push(e[id].v);
